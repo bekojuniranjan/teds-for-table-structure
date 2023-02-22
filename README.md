@@ -17,3 +17,16 @@ In order to calculate TEDS score of two html, one is actual and other is predict
 python3 teds.py 
 ```
 
+--- 
+
+For Table Structure TEDS score:
+```
+teds = TEDS()
+teds.evaluate(y_pred_html,y_true_html, True)
+```
+
+For Whole HTML TEDS score:
+```
+teds = TEDS()
+teds.evaluate(y_pred_html,y_true_html, True)
+```

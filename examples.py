@@ -520,7 +520,7 @@ y_pred_html = """<html><table>
                         <td>297,655</td>
                     </tr>
                     <tr>
-                        <td>(named executive)</td>
+                        <td>(named )</td>
                         <td></td>
                         <td></td>
                         <td></td>

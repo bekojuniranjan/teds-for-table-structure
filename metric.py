@@ -16,6 +16,7 @@ from lxml import etree, html
 from collections import deque
 from parallel import parallel_process
 from tqdm import tqdm
+from bs4 import BeautifulSoup
 
 class TableTree(Tree):
     def __init__(self, tag, colspan=None, rowspan=None, content=None, *children):
@@ -107,7 +108,13 @@ class TEDS(object):
         if parent is None:
             return new_node
 
-    def evaluate(self, pred, true):
+    def get_table_structure(self, html_):
+        bs_data = BeautifulSoup(html_, 'html.parser')
+        for i in bs_data.find_all('td'):
+            i.string = 'a'
+        return str(bs_data)
+        
+    def evaluate(self, pred, true, is_structure=False):
         ''' Computes TEDS score between the prediction and the ground truth of a
             given sample
         '''
@@ -115,6 +122,11 @@ class TEDS(object):
             # print('NOT')
             return 0.0
         # print('inside evaluate of TEDS')
+        if is_structure:
+            pred = self.get_table_structure(pred)
+            true = self.get_table_structure(true)
+
+
         parser = html.HTMLParser(remove_comments=True, encoding='utf-8')
         pred = html.fromstring(pred, parser=parser)
         true = html.fromstring(true, parser=parser)
