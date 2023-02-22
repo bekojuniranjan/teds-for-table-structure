@@ -1,5 +1,4 @@
 from metric import TEDS
-import re 
 from bs4 import BeautifulSoup
 from examples import y_pred_html, y_true_html
 def replace_html_attr(text_):
