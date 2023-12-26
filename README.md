@@ -14,10 +14,10 @@ pip3 install apted
 In order to calculate TEDS score of two html, one is actual and other is predicted. Place two html as a string in ```examples.py```. Then, run following command.
 
 ```
-python3 teds.py 
+python3 teds.py
 ```
 
---- 
+---
 
 For Table Structure TEDS score:
 ```
@@ -28,5 +28,5 @@ teds.evaluate(y_pred_html,y_true_html, True)
 For Whole HTML TEDS score:
 ```
 teds = TEDS()
-teds.evaluate(y_pred_html,y_true_html, True)
+teds.evaluate(y_pred_html,y_true_html)
 ```
